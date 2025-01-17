@@ -117,12 +117,12 @@ class SlashDictProxy(collections.abc.Mapping):
         self._base = base
 
     def __getitem__(self, path):
-        if not path or path[0] != '/':
+        if not path or path[0] != "/":
             raise KeyError(path)
         return self._base[path[1:]]
 
     def __iter__(self):
-        return ('/' + name for name in self._base)
+        return ("/" + name for name in self._base)
 
     def __len__(self):
         return len(self._base)

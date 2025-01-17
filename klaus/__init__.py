@@ -9,7 +9,6 @@ except ImportError:
 import dulwich.web
 import flask
 import httpauth
-from dulwich.errors import NotGitRepository
 
 from klaus import utils, views
 from klaus.repo import DefaultRepoContainer

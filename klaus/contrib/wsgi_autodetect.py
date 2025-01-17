@@ -1,14 +1,14 @@
+import contextlib
 import os
 import warnings
-import contextlib
 
 from .app_args import get_args_from_env, strtobool
 from .wsgi_autodetecting import make_autodetecting_app
 
 try:
-    repos_root = os.environ['KLAUS_REPOS_ROOT']
+    repos_root = os.environ["KLAUS_REPOS_ROOT"]
 except KeyError:
-    repos_root = os.environ['KLAUS_REPOS']
+    repos_root = os.environ["KLAUS_REPOS"]
     warnings.warn(
         "use KLAUS_REPOS_ROOT instead of KLAUS_REPOS for the autodecting apps",
         DeprecationWarning,
@@ -18,10 +18,10 @@ args, kwargs = get_args_from_env()
 args = (repos_root,) + args[1:]
 
 with contextlib.suppress(KeyError):
-    kwargs['detect_removals'] = bool(strtobool(os.environ['KLAUS_DETECT_REMOVALS']))
+    kwargs["detect_removals"] = bool(strtobool(os.environ["KLAUS_DETECT_REMOVALS"]))
 
 with contextlib.suppress(KeyError):
-    kwargs['export_ok_path'] = os.environ['KLAUS_EXPORT_OK_PATH']
+    kwargs["export_ok_path"] = os.environ["KLAUS_EXPORT_OK_PATH"]
 
 with contextlib.suppress(KeyError):
     # How to deal with repository directories named "foo" and/or "foo.git".
@@ -38,6 +38,6 @@ with contextlib.suppress(KeyError):
     # KLAUS_EXPORT_OK_PATH=""
     #   The .git suffix is not considered.
 
-    kwargs['directory_suffixes'] = os.environ['KLAUS_DIRECTORY_SUFFIXES'].split(os.sep)
+    kwargs["directory_suffixes"] = os.environ["KLAUS_DIRECTORY_SUFFIXES"].split(os.sep)
 
 application = make_autodetecting_app(*args, **kwargs)

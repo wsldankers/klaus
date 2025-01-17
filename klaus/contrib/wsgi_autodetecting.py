@@ -30,8 +30,8 @@ import klaus
 import klaus.repo
 
 _bad_names = frozenset([os.curdir, os.pardir])
-_bad_chars = frozenset(['\0', os.sep, os.altsep])
-_default_directory_suffixes = ['', '.git']
+_bad_chars = frozenset(["\0", os.sep, os.altsep])
+_default_directory_suffixes = ["", ".git"]
 
 
 def coalesce(*args):
@@ -72,7 +72,7 @@ class AutodetectingRepoDict(collections.abc.Mapping):
         self._cache = {}
         self._namespace = namespace
         self._detect_removals = coalesce(detect_removals, True)
-        self._export_ok_path = coalesce(export_ok_path, 'git-daemon-export-ok')
+        self._export_ok_path = coalesce(export_ok_path, "git-daemon-export-ok")
         # Use the keys of a dict in reverse order so that we can create a sort
         # of "poor man's splay tree": the suffixes are always tried in reverse
         # order. If a suffix was matched succesfully it is moved to the end by
@@ -85,7 +85,7 @@ class AutodetectingRepoDict(collections.abc.Mapping):
     def __getitem__(self, name):
         if (
             not name
-            or name.startswith('.')
+            or name.startswith(".")
             or name in _bad_names
             or not _bad_chars.isdisjoint(name)
         ):
