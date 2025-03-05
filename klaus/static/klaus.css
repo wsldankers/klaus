@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+:root { color-scheme: light dark; }
+
 body, header, #content { overflow: auto; }
 
 /* Reset */
@@ -280,3 +282,88 @@ a.commit { color: black !important; }
   border: 1px solid #e0e0e0;
 }
 .diff .sep:hover > td { background-color: #f9f9f9; }
+
+@media (prefers-color-scheme: dark) {
+  /* Reset */
+  body { background-color: #131419; color: #eee; }
+  a, a:visited { color: #a55; }
+  .slash { color: #EFEFEF; }
+
+  /* Header */
+  header { border-bottom-color: #8A8A8A; }
+  header .breadcrumbs > span:before { color: #EFEFEF; }
+
+  /* Branch/tag selector */
+  .branch-selector { background-color: #131419; }
+  .branch-selector > * { background-color: #282a36; }
+  .branch-selector > span { border-color: #616161; }
+  .branch-selector > span:hover { background-color: #131419; }
+  .branch-selector ul + ul { border-top-color: #8A8A8A; }
+  .branch-selector li a { border-bottom-color: #616161; color: #d55; }
+  .branch-selector li:first-child a { border-top-color: #616161; }
+  .branch-selector li a:hover { background-color: #131419; }
+  .branch-selector:hover { border-color: #A9A9A9; }
+
+  /* Footer */
+  footer { color: #EFEFEF; }
+  footer a { border-bottom-color: #EFEFEF; }
+  .pagination > a { border-color: #608CB8; }
+  .pagination > a:hover { border-color: #6793D3; }
+  .pagination span { color: #D7D7D7; border-color: #A9A9A9; }
+
+  /* Repo List */
+  .repolist li a .last-updated { color: #ccc; }
+  .repolist li a .description { color: white; }
+  .invalid { color: red; }
+  .invalid .reason { color: #EBEBEB; }
+
+  /* Base styles for history and commit views */
+  .commit { background-color: #282a36; border-color: #8A8A8A; }
+  .commit:hover .line1 { color: #CBCBCB; }
+  .commit:hover .line1 span { color: white; }
+  .commit .line2 { color: #EBEBEB; }
+
+  /* History View */
+  a.commit { color: white !important; }
+  .tree ul { border-top-color: #8A8A8A; }
+  .tree li { background-color: #282a36; border-color: #8A8A8A; }
+  .tree li a { color: #d55; }
+
+  /* Blob, Blame, Diff, Markup View */
+  .linenos { background-color: #3b3e50; }
+  .linenos a { color: #E1E1E1; }
+  .highlight-line, .highlight-line .line { background-color: #131419; }
+  .markup table, .markup img, .markup pre { border-color: #8A8A8A; }
+  .markup pre { background-color: black; }
+
+  /* Blob, Blame View */
+  .blobview table, .blameview table { border-color: #8A8A8A; }
+  .blobview .linenos, .blameview .linenos { border-color: #8A8A8A; padding: 0; }
+
+  /* Blob View */
+  .blobview .markup { border-color: #8A8A8A; }
+
+  /* Blame View */
+  .blameview .line-info { background-color: #3b3e50; }
+
+  /* Commit View */
+  .full-commit .summary { color: #EBEBEB; }
+  .full-commit .summary .additions { color: #00E100; }
+  .full-commit .summary .deletions { color: #E10000; }
+
+  .diff .filename { background-color: #3b3e50; border-color: #8A8A8A; }
+  .diff .filename a { color: #faa; }
+  .diff .filename del { color: #D7D7D7; }
+  .diff .filename .summary .additions { color: #00E500; }
+  .diff .filename .summary .deletions{ color: red; }
+
+  .diff table, .diff .emptydiff { border-color: #8A8A8A; background-color: #282a36;  }
+  .diff td { border-left-color: #8A8A8A; }
+  .diff table .del { background-color: #322; }
+  .diff table .add { background-color: #232; }
+  .diff table .no-newline-marker { color: red; }
+  .diff table del { background-color: #322; }
+  .diff table ins { background-color: #232; }
+  .diff .sep > td { background-color: #3b3e50; border-color: #8A8A8A; }
+  .diff .sep:hover > td { background-color: #3b3e50; }
+}
